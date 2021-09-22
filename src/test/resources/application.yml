@@ -1,0 +1,22 @@
+spring:
+  security.oauth2.client:
+    registration:
+      myprovider:
+        client-id: oidcclient
+        client-secret: oidcsecret
+        authorization-grant-type: authorization_code
+        scope: "openid,profile,email"
+        redirect-uri: http://{baseUrl}/api/oauth2/{action}/{registrationId}
+    provider:
+      myprovider:
+        authorization-uri: http://myprovider:9000/auth
+        token-uri: http://myprovider:9000/token
+        jwk-set-uri: http://myprovider:9000/certs
+        user-name-attribute: sub
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

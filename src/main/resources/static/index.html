@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="providers"></div>
+    <div id="userinfo">
+        <div id="email"></div>
+        <div id="name"></div>
+    </div>
+</body>
+<script>
+    fetch("/api/user")
+        .then(res => res.json())
+        .then(data => {
+            let user = data.principal;
+
+            document.getElementById("email").textContent = user.email;
+            document.getElementById("name").textContent = user.firstName + " " + user.lastName;
+        })
+        .catch(err => addLoginOptions());
+
+    function addLoginOptions() {
+        fetch("/api/auth-config")
+            .then(res => res.json())
+            .then(data => data.providers.forEach(provider => {
+                let btn = document.createElement("a");
+                btn.href = "/api/oauth2/authorization/" + provider;
+                btn.text = "Login with " + provider;
+
+                document.getElementById("providers").appendChild(btn);
+            }));
+    }
+</script>
+</html>

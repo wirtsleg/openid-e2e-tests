@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "email": "albus@dumbledore",
+    "email_verified": true,
+    "given_name": "Albus",
+    "family_name": "Dumbledore",
+    "password": "phoenix's egg"
+  },
+  {
+    "id": "2",
+    "email": "tom@riddle",
+    "email_verified": true,
+    "given_name": "Tom",
+    "family_name": "Riddle",
+    "password": "Those who do not fear the darkness..."
+  }
+]

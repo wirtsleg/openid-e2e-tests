@@ -1,0 +1,28 @@
+{
+  "idp_name": "http://myprovider",
+  "port": 9000,
+  "client_config": [
+    {
+      "client_id": "oidcclient",
+      "client_secret": "oidcsecret",
+      "redirect_uris": [
+        "http://localhost:8080/api/v1/oauth2/login/oidcclient",
+        "http://host.testcontainers.internal:8080/api/v1/oauth2/login/oidcclient"
+      ]
+    }
+  ],
+  "claim_mapping": {
+    "openid": [
+      "sub"
+    ],
+    "email": [
+      "email",
+      "email_verified"
+    ],
+    "profile": [
+      "name",
+      "given_name",
+      "family_name"
+    ]
+  }
+}
